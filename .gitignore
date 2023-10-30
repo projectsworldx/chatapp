@@ -41,6 +41,22 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+chat-be/node_modules/
+chat-fe/node_modules/
+
+# Ignore logs
+*.log
+
+# Ignore environment files
+*.env
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore other non-essential files
+.idea/
+.vscode/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
