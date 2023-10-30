@@ -1,0 +1,8 @@
+{
+    "scripts": {
+      "start": "npm-run-all --parallel start:fe start:be",
+      "start:fe": "cd chat-fe && npm start",
+      "start:be": "cd chat-be && npm start"
+    }
+  }
+  
