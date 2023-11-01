@@ -31,16 +31,14 @@ export class UserService {
   }
 
   findFriends(id: string) {
-
     const createdUser =  this.userModel.find({ _id: { $ne: id }}).exec();
     return createdUser;
-
   }
 
   async userLogin(userLogin: UserLogin) {
 
     try {
-      let { email: email, password } = userLogin;
+      let { email: email, password: inputPassword  } = userLogin;
       let createdUser: any = await this.userModel.findOne({ email }).exec();
 
       //user not found
@@ -48,7 +46,7 @@ export class UserService {
         throw new HttpException({success: false, result: "User not found"}, HttpStatus.NOT_FOUND);
       }
 
-      const isMatch = await bcrypt.compare(password, createdUser?.password);
+      const isMatch = await bcrypt.compare(inputPassword, createdUser?.password);
 
       //invalid credentials
       if (!isMatch) {
@@ -57,7 +55,13 @@ export class UserService {
 
       let {_id, ...userObject} = createdUser;
       let token = await this.JwtAuthService.createToken(userObject);
-      return {success: true, result: "User Logged in successfully", data : {token, userObject: createdUser}};
+      return {
+        response : {
+          success: true, 
+          result: "User Logged in successfully", 
+          obj: {token, userObject: createdUser}
+        }
+      };
 
     }
     catch (err) {

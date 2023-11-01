@@ -40,24 +40,17 @@ const Chat = () => {
   return (
       <div>
         <Grid container>
-            <Grid item xs={12} >
-                <Typography variant="h5" className="header-message">Chat</Typography>
-            </Grid>
         </Grid>
         <Grid container component={Paper} className={classes.chatSection}>
             <Grid item xs={3} className={classes.borderRight500}>
                 <List>
-                    <ListItem button key="RemySharp">
+                    <ListItem  key="RemySharp">
                         <ListItemIcon>
                         <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg" />
                         </ListItemIcon>
                         <ListItemText primary="John Wick"></ListItemText>
                     </ListItem>
                 </List>
-                <Divider />
-                <Grid item xs={12} style={{padding: '10px'}}>
-                    <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth />
-                </Grid>
                 <Divider />
                 <List>
                     <ListItem button key="RemySharp">
