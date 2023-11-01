@@ -11,4 +11,4 @@ Simple Chat app
     - npm run node-fe
 3. Copy the .env file and paste in the chat-be folder
 4. Now go to project root  and install npm-run-all
-    - npm install npm-run-all@latest --save-dev
+   `npm install npm-run-all@latest --save-dev`
